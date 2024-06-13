@@ -1,6 +1,7 @@
 {
 	"name": "world-tree-anno",
 	"version": "0.0.1",
+	"license": "MIT",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
