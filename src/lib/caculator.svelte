@@ -23,6 +23,15 @@
 		ceValue = `${date.getFullYear()}-${format(date.getMonth())}-${format(date.getDay())}T${format(date.getHours())}:${format(date.getMinutes())}`;
 	}
 
+	function checkValue() {
+		wtaYear = (wtaYear ?? 1) >= 1 ? wtaYear : 1;
+		wtaMonth = (wtaMonth ?? 1) >= 1 ? wtaMonth : 1;
+		wtaDay = (wtaDay ?? 1) >= 1 ? wtaDay : 1;
+		wtaHour = (wtaHour ?? 0) >= 0 ? wtaHour : 0;
+		wtaMinute = (wtaMinute ?? 0) >= 0 ? wtaMinute : 0;
+		wtaSecond = (wtaSecond ?? 0) >= 0 ? wtaSecond : 0;
+	}
+
 	function wtaFlash(anno: Anno) {
 		wtaYear = Number(anno.year.number);
 		wtaMonth = Number(anno.month.number);
@@ -41,6 +50,7 @@
 	}
 
 	function wtaOnChange() {
+		checkValue();
 		let wta = kal.Anno.from_time(
 			BigInt(wtaYear),
 			BigInt(wtaMonth),
