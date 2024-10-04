@@ -34,7 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"kitten-anno-lib": "^0.3.15",
+		"kitten-anno-lib": "^0.3.16",
 		"normalize.css": "^8.0.1"
 	}
 }

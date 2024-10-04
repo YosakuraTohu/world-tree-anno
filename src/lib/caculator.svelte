@@ -13,19 +13,24 @@
 	$: wtaSecond = 0;
 	$: wtaStr = '';
 
+	function formatTimestamp(date: Date) {
+		const year = date.getFullYear();
+		const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+		const day = String(date.getDate()).padStart(2, '0');
+		const hours = String(date.getHours()).padStart(2, '0');
+		const minutes = String(date.getMinutes()).padStart(2, '0');
+
+		return `${year}-${month}-${day}T${hours}:${minutes}`;
+	}
+
 	function ceFlash(timestamp: number) {
 		let date = new Date(timestamp * 1000);
-
-		let format = (n: number) => {
-			return n < 10 ? '0' + n : n.toString();
-		};
-
-		ceValue = `${date.getFullYear()}-${format(date.getMonth())}-${format(date.getDay())}T${format(date.getHours())}:${format(date.getMinutes())}`;
+		ceValue = formatTimestamp(date);
 	}
 
 	function checkValue() {
 		wtaYear = (wtaYear ?? 1) >= 1 ? wtaYear : 1;
-		wtaMonth = (wtaMonth ?? 1) >= 1 ? wtaMonth : 1;
+		wtaMonth = (wtaMonth ?? 1) >= 0 ? wtaMonth : 1;
 		wtaDay = (wtaDay ?? 1) >= 1 ? wtaDay : 1;
 		wtaHour = (wtaHour ?? 0) >= 0 ? wtaHour : 0;
 		wtaMinute = (wtaMinute ?? 0) >= 0 ? wtaMinute : 0;
