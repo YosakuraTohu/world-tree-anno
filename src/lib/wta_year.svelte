@@ -9,7 +9,7 @@
 	$: craom = caom(1);
 	$: is_common = craom.is_common.year;
 	$: title = now.to_string();
-	$: months = Array.from({ length: 27 + (!is_common ? 1 : 0) }, (_, k) => caom(k + 1));
+	$: months = Array.from({ length: 27 + (!is_common ? 1 : 0) }, (_, k) => caom(k + (is_common ? 1 : 0)));
 </script>
 
 <div class="year-wrapper">
